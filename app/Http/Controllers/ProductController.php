@@ -43,6 +43,9 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
+        if (!$product) {
+            return response() -> json(['message' => 'Product not Found.'], 404);
+        }
         return response()->json($product, 200);
     }
 
